@@ -10,11 +10,13 @@ public class GameScreen extends ScreenAdapter {
 	SpriteBatch batch;
 	BasGame basGame;
 	BackGround backGround;
+	GroundPlayer groundPlayer;
 	
 	public GameScreen(BasGame basGame) {
 		this.basGame = basGame;
 		batch = basGame.batch;
 		backGround = new BackGround(basGame);
+		groundPlayer = new GroundPlayer(basGame);
 	}
 
 	@Override
@@ -23,6 +25,7 @@ public class GameScreen extends ScreenAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		backGround.render();
+		groundPlayer.render();
 		batch.end();
 	}
 }
