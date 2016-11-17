@@ -10,7 +10,7 @@ public class LeftPlayer {
 	SpriteBatch batch;
 	BasGame basGame;
 	Texture player;
-	int x = 0, y = 0;
+	public int x = 0, y = 0;
 	
 	public LeftPlayer(BasGame basGame) {
 		this.basGame = basGame;
@@ -33,5 +33,13 @@ public class LeftPlayer {
 				x += 2;
 			}
 		}
+	}
+	
+	public int getPositionX() {
+		return x;
+	}
+	
+	public int getPositionY() {
+		return y;
 	}
 }

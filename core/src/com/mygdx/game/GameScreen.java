@@ -14,15 +14,19 @@ public class GameScreen extends ScreenAdapter {
 	LeftPlayer leftPlayer;
 	RightPlayer rightPlayer;
 	BasHoop basHoop;
+	BasLeft basLeft;
+	BasRight basRight;
 	
 	public GameScreen(BasGame basGame) {
 		this.basGame = basGame;
 		batch = basGame.batch;
 		backGround = new BackGround(basGame);
 		groundPlayer = new GroundPlayer(basGame);
+		basHoop = new BasHoop(basGame);
 		leftPlayer = new LeftPlayer(basGame);
 		rightPlayer = new RightPlayer(basGame);
-		basHoop = new BasHoop(basGame);
+		basLeft = new BasLeft(basGame, leftPlayer);
+		basRight = new BasRight(basGame, rightPlayer);
 	}
 
 	@Override
@@ -35,6 +39,8 @@ public class GameScreen extends ScreenAdapter {
 		leftPlayer.render();
 		rightPlayer.render();
 		basHoop.render();
+		basLeft.render();
+		basRight.render();
 		batch.end();
 	}
 }

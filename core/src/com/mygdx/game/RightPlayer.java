@@ -9,7 +9,7 @@ public class RightPlayer {
 	SpriteBatch batch;
 	BasGame basGame;
 	Texture player;
-	int x = 0, y = 0;
+	public int x = 0, y = 0;
 	
 	public RightPlayer(BasGame basGame) {
 		this.basGame = basGame;
@@ -32,5 +32,13 @@ public class RightPlayer {
 				x += 2;
 			}
 		}
+	}
+	
+	public int getPositionX() {
+		return x;
+	}
+	
+	public int getPositionY() {
+		return y;
 	}
 }
