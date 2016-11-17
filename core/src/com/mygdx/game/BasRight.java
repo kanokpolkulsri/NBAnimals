@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class BasRight {
@@ -10,20 +11,28 @@ public class BasRight {
 	BasGame basGame;
 	Texture ball;
 	RightPlayer rightPlayer;
-	int x = 0, y = 0;
+	public int x = 0, y = 0;
 	int positionY = 0;
 	boolean shootBall = false;
+	int scoreBallRight = 0;
+	BitmapFont font;
 	
 	public BasRight(BasGame basGame, RightPlayer rightPlayer) {
 		this.basGame = basGame;
 		this.rightPlayer = rightPlayer;
 		batch = basGame.batch;
 		ball = new Texture("ballOrange.png");
+		font = new BitmapFont();
 	}
 	
 	public void render() {
 		batch.draw(ball, x, y);
 		positionBall();
+		writeScoreRight();
+	}
+	
+	public void writeScoreRight() {
+		font.draw(batch, scoreBallRight + " ", 900, 457);
 	}
 	
 	public void positionBall() {
@@ -41,20 +50,25 @@ public class BasRight {
 		
 		if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
 			shootBall = true;
-			positionY = 100;
+			positionY = 200;
 		}
 		
 		if (shootBall == true) {
 			if (y < positionY && positionY != -100) {
 				y += 2;
+				x -= 1;
 			} else if (y >= positionY) {
 				positionY = -100;
 				y -= 2;
+				x -= 2;
 			} else if (y == -102) {
 				shootBall = false;
 				x = rightPlayer.getPositionX();
 				y = rightPlayer.getPositionY();
 			}
+		}
+		if(x == -330 && y == 120){
+			scoreBallRight += 1;
 		}
 	}
 }
