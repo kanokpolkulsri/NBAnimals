@@ -3,19 +3,18 @@ package com.mygdx.game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class GroundPlayer {
-	
+public class RightPlayer {
 	SpriteBatch batch;
 	BasGame basGame;
-	Texture ground;
+	Texture player;
 	
-	public GroundPlayer(BasGame basGame) {
+	public RightPlayer(BasGame basGame) {
 		this.basGame = basGame;
 		batch = basGame.batch;
-		ground = new Texture("floor.png");
+		player = new Texture("aTiger.psd");
 	}
 	
 	public void render() {
-		batch.draw(ground, 0, 0);
+		batch.draw(player, 0, 0);
 	}
 }

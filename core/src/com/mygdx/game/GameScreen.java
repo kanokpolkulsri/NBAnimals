@@ -11,12 +11,16 @@ public class GameScreen extends ScreenAdapter {
 	BasGame basGame;
 	BackGround backGround;
 	GroundPlayer groundPlayer;
+	LeftPlayer leftPlayer;
+	RightPlayer rightPlayer;
 	
 	public GameScreen(BasGame basGame) {
 		this.basGame = basGame;
 		batch = basGame.batch;
 		backGround = new BackGround(basGame);
 		groundPlayer = new GroundPlayer(basGame);
+		leftPlayer = new LeftPlayer(basGame);
+		rightPlayer = new RightPlayer(basGame);
 	}
 
 	@Override
@@ -26,6 +30,8 @@ public class GameScreen extends ScreenAdapter {
 		batch.begin();
 		backGround.render();
 		groundPlayer.render();
+		leftPlayer.render();
+		rightPlayer.render();
 		batch.end();
 	}
 }
