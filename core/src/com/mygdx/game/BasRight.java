@@ -11,11 +11,9 @@ public class BasRight {
 	BasGame basGame;
 	Texture ball;
 	RightPlayer rightPlayer;
-	public int x = 0, y = 0;
-	int positionY = 0;
-	boolean shootBall = false;
-	int scoreBallRight = 0;
 	BitmapFont font;
+	public int x = 0, y = 0 , scoreBallRight = 0 , positionY = 0;
+	boolean shootBall = false;
 	
 	public BasRight(BasGame basGame, RightPlayer rightPlayer) {
 		this.basGame = basGame;

@@ -12,11 +12,9 @@ public class BasLeft {
 	BasGame basGame;
 	Texture ball;
 	LeftPlayer leftPlayer;
-	int x = 0, y = 0;
-	boolean shootBall = false;
-	int positionY = 0;
-	int scoreBallLeft = 0;
 	BitmapFont font;
+	int x = 0, y = 0 , positionY = 0 , scoreBallLeft = 0;
+	boolean shootBall = false;
 	
 	public BasLeft(BasGame basGame, LeftPlayer leftPlayer) {
 		this.basGame = basGame;
@@ -52,10 +50,13 @@ public class BasLeft {
 			shootBall = true;
 			positionY = 200;
 		}
-		
+		throwingBall();
+	}
+	
+	public void throwingBall() {
 		if (shootBall == true) {
 			if (y < positionY && positionY != -100) {
-				y += 2;
+				y += 4;
 				x += 1;
 			} else if (y >= positionY) {
 				positionY = -100;
@@ -69,8 +70,6 @@ public class BasLeft {
 			if(x == 314 && y == 126){
 				scoreBallLeft += 1;
 			}
-			//System.out.println("position x : " + x);
-			//System.out.println("position y : " + y);
 		}
 	}
 }
