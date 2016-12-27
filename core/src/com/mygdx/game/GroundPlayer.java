@@ -18,10 +18,10 @@ public class GroundPlayer {
 		ground = new Texture("floor.png");
 		bgSound = Gdx.audio.newMusic(Gdx.files.internal("bgSound.mp3"));
 		bgSound.setLooping(true);
-		bgSound.play();
 	}
 	
 	public void render() {
+		bgSound.play();
 		batch.draw(ground, 0, 0);
 	}
 }
